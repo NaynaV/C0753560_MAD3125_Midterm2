@@ -22,7 +22,9 @@ public class MainActivity extends AppCompatActivity {
     private FlightAdaptor mAdapter;
 
     FlightData mFlidatData;
+
     private List<FlightMain> flightRowList = new ArrayList<>();
+
     public static ArrayList<FlightMain> FlightList;
 
 ImageView imgView;
@@ -58,6 +60,7 @@ ImageView imgView;
         Log.d("Size of mSpaceList:",String.valueOf(mFlightData.mFlightList.size()));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         imgView = findViewById(R.id.flightImage);
         recyclerView = findViewById(R.id.flightListRecyclerView);
 
@@ -79,7 +82,7 @@ ImageView imgView;
         {
             FlightMain flightRow = new FlightMain();
 
-            FlightList.add(flightRow);
+            flightRowList.add(flightRow);
         }
         mAdapter.notifyDataSetChanged();
     }
