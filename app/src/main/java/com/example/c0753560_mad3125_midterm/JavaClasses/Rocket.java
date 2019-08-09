@@ -9,9 +9,6 @@ public class Rocket
     private String rocketName;
     private String rocketType;
 
-    public Rocket() {
-    }
-
     public Rocket(String rocketId, String rocketName, String rocketType) {
         this.rocketId = rocketId;
         this.rocketName = rocketName;
