@@ -1,6 +1,7 @@
 package com.example.c0753560_mad3125_midterm;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,7 +63,15 @@ public class FlightData extends RecyclerView.Adapter<FlightData.FlightViewHolder
         holder.FlightName.setText(flightName);
         holder.LaunchYear.setText(launchYear);
 
-        Glide.with(holder.FlightImage.getContext()).load(currentItem.getLinks().getMissionPatchSmall()).into(holder.FlightImage);
+        String photoUrl = mFlightList.get(1).getLinks().getMissionPatchSmall();
+        Log.d("string photo url  : ",photoUrl);
+        Glide.with()  //2
+                .load(photoUrl) //3
+                .centerCrop() //4
+                .placeholder(R.drawable.img_placeholder) //5
+                .error(R.drawable.img_notload) //6
+                .fallback(R.drawable.img_placeholder) //7
+                .into(fligh);
 
     }
 
