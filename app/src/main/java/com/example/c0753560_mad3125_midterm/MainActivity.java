@@ -9,6 +9,15 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Recycler
+    iew recyclerView;
+    private FlightAdapter mAdapter;
+
+    DataStore mDataStore;
+    private List<FlightRow> flightRowList = new ArrayList<>();
+    public static ArrayList<SpaceXFlight> staticSpaceXFlightList;
+
 ImageView imgView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +42,37 @@ ImageView imgView;
                 .fallback(R.drawable.img_placeholder) //7
                 .into(imgView);
 
+
+//testCode
+        mDataStore = new FlightData(MainActivity.this);
+        mDataStore.p();
+        MainActivity.staticSpaceXFlightList = mDataStore.mSpaceXFlightList;
+        Log.d("Size of SS space List :",String.valueOf(MainActivity.staticSpaceXFlightList.size()));
+        Log.d("Size of mSpaceList:",String.valueOf(mDataStore.mSpaceXFlightList.size()));
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        imageView = findViewById(R.id.imageView);
+        recyclerView = findViewById(R.id.recycleView);
+
+
+        mAdapter = new FlightAdapter(this,flightRowList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
+        prepareFlightListData();
+
+
+    }
+
+    private void prepareFlightListData()
+    {
+        for(SpaceXFlight flight : mDataStore.mSpaceXFlightList)
+        {
+            FlightRow flightRow = new FlightRow(flight.getLinks().getMission_patch_small(),flight.getMission_name(),flight.getLaunch_year());
+            flightRowList.add(flightRow);
+        }
+        mAdapter.notifyDataSetChanged();
     }
     }
 
