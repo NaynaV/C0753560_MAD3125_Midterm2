@@ -28,9 +28,9 @@ ImageView imgView;
         Glide.with(imgView)  //2
                 .load(photoUrl) //3
                 .centerCrop() //4
-                //.placeholder(R.drawable.img_placeholder) //5
-                //.error(R.drawable.img_notload) //6
-                //.fallback(R.drawable.img_placeholder) //7
+                .placeholder(R.drawable.img_placeholder) //5
+                .error(R.drawable.img_notload) //6
+                .fallback(R.drawable.img_placeholder) //7
                 .into(imgView);
 
     }
