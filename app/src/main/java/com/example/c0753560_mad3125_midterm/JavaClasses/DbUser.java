@@ -111,7 +111,7 @@ public class DbUser {
                 mCursor.moveToFirst();
                 while (!mCursor.isAfterLast())
                 {
-                    User mUser = new User();
+                    User mUser = new User(5, "xyz@xyz.com", "xyz");
                     mUser.setUserId(Integer.parseInt(mCursor.getString(0)));
                     mUser.setUserEmail(mCursor.getString(1));
                     mUser.setUserPassword(mCursor.getString(2));
@@ -142,7 +142,7 @@ public class DbUser {
                 mCursor.moveToFirst();
                 while (!mCursor.isAfterLast())
                 {
-                    User mUser = new User();
+                    User mUser = new User(5, "xyz@xyz.com", "xyz");
                     mUser.setUserEmail(mCursor.getString(1));
                     mUser.setUserPassword(mCursor.getString(2));
 

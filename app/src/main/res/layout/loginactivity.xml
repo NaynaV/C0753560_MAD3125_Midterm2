@@ -57,4 +57,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
+
+    <Switch
+        android:id="@+id/swtchRemember"
+        android:layout_width="228dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="195dp"
+        android:text="Remember Me?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.205"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 </androidx.constraintlayout.widget.ConstraintLayout>
