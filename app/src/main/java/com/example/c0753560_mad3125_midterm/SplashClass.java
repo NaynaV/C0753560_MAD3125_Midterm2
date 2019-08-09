@@ -20,7 +20,7 @@ public class SplashClass extends AppCompatActivity
             public void run() {
                 try {
                     sleep(3000);
-                    Intent intent = new Intent(getApplicationContext(), loginClass.class);
+                    Intent intent = new Intent(SplashClass.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 }

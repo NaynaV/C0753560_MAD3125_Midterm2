@@ -24,7 +24,7 @@ public class FlightAdaptor extends RecyclerView.Adapter<FlightAdaptor.flightView
     ImageView flightImage;
     TextView flightName,flightYear;
 
-    private static final String TAG = "FlightAdapter";
+    private static final String TAG = "FlightAdaptor";
 
     AppCompatActivity activity;
 
@@ -32,7 +32,7 @@ public class FlightAdaptor extends RecyclerView.Adapter<FlightAdaptor.flightView
     {
         this.flightList = flightList;
         this.activity = activity_main;
-        Log.e(TAG, "FlightAdapter: "+flightList.size() );
+        Log.e(TAG, "FlightAdaptor: "+flightList.size() );
 
     }
 
@@ -57,9 +57,10 @@ public class FlightAdaptor extends RecyclerView.Adapter<FlightAdaptor.flightView
                 .error(R.drawable.img_notload) //6
                 .fallback(R.drawable.img_placeholder) //7
                 .into(holder.flightImage);
-        //myViewHolder.flightImage.setImageResource(mFlightRow.getImageId());
-        //icon.setImageResource(context.getResources().getIdentifier(animal.getAnimalName().toLowerCase(),"drawable",context.getPackageName()));
+
         holder.flightName.setText(mFlightMain.getFlightName());
+        Log.d("Misssion name:",String.valueOf(mFlightMain.getFlightName()));
+
         holder.flightYear.setText(mFlightMain.getFlightYear());
 
     }
