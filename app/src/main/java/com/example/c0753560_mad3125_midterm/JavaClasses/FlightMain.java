@@ -12,7 +12,7 @@ public class FlightMain
     LaunchSite launchSite;
     Links links;
 
-    public FlightMain(String filghtNumber, String missionName, String upcoming, String launchYear, String launchWindow, String details, Rocket rocket, LaunchSite launchSite, Links links)
+    public FlightMain()
     {
         this.filghtNumber = filghtNumber;
         this.missionName = missionName;

@@ -7,7 +7,7 @@ public class Links
     private String wikipedia;
     private String videoLink;
 
-    public Links(String missionPatchSmall, String articleLink, String wikipedia, String videoLink) {
+    public Links() {
         this.missionPatchSmall = missionPatchSmall;
         this.articleLink = articleLink;
         this.wikipedia = wikipedia;

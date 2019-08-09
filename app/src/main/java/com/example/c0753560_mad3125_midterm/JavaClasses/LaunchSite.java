@@ -5,7 +5,7 @@ public class LaunchSite {
     private String siteName;
     private String siteNameLong;
 
-    public LaunchSite(String siteID, String siteName, String siteNameLong) {
+    public LaunchSite() {
         this.siteID = siteID;
         this.siteName = siteName;
         this.siteNameLong = siteNameLong;

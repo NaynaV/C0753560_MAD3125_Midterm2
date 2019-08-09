@@ -9,7 +9,7 @@ public class Rocket
     private String rocketName;
     private String rocketType;
 
-    public Rocket(String rocketId, String rocketName, String rocketType) {
+    public Rocket() {
         this.rocketId = rocketId;
         this.rocketName = rocketName;
         this.rocketType = rocketType;
