@@ -16,7 +16,7 @@ ImageView imgView;
         setContentView(R.layout.activity_main);
 
 
-        imgView = findViewById(R.id.imgView);
+       // imgView = findViewById(R.id.imgView);
 
 
         FlightData mFlightData = new FlightData(MainActivity.this);

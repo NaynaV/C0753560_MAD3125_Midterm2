@@ -1,7 +1,16 @@
 package com.example.c0753560_mad3125_midterm;
 
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 import com.example.c0753560_mad3125_midterm.JavaClasses.FlightMain;
 import com.example.c0753560_mad3125_midterm.JavaClasses.LaunchSite;
 import com.example.c0753560_mad3125_midterm.JavaClasses.Links;
@@ -21,7 +30,7 @@ import java.io.IOException;
 
 import java.nio.charset.StandardCharsets;
 
-public class FlightData
+public class FlightData extends RecyclerView.Adapter<FlightData.FlightViewHolder>
 {
     Context context;
     public ArrayList<FlightMain> mFlightList ;
@@ -34,6 +43,47 @@ public class FlightData
     {
         this.context = context;
     }
+
+    @NonNull
+    @Override
+    public FlightViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(context).inflate(R.layout.flightlist, parent, false);
+        return new FlightViewHolder(v);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull FlightViewHolder holder, int position) {
+        FlightMain currentItem = mFlightList.get(position);
+
+
+        String flightName = currentItem.getMissionName();
+        String launchYear = currentItem.getLaunchYear();
+
+        holder.FlightName.setText(flightName);
+        holder.LaunchYear.setText(launchYear);
+
+        Glide.with(holder.FlightImage.getContext()).load(currentItem.getLinks().getMissionPatchSmall()).into(holder.FlightImage);
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return mFlightList.size();
+    }
+
+    public class FlightViewHolder extends RecyclerView.ViewHolder{
+        public ImageView FlightImage;
+        public TextView FlightName;
+        public TextView LaunchYear;
+
+    public FlightViewHolder(@NonNull View itemView) {
+        super(itemView);
+
+        FlightImage = itemView.findViewById(R.id.flightImage);
+        FlightName = itemView.findViewById(R.id.text_view_flightName);
+        LaunchYear = itemView.findViewById(R.id.text_view_launchYear);
+    }
+}
 
     public String loadJSONFromAsset() {
         String json;
