@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
 
 public class FlightDetail extends AppCompatActivity
 {
-FlightMain flghtDetail;
+FlightMain flightDetail;
 
 
     @BindView(R.id.txtName)
@@ -45,27 +45,17 @@ FlightMain flghtDetail;
         setContentView(R.layout.flightdetail);
 
         ButterKnife.bind(this);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(FlightDetailsActivity.this,ArticleActivity.class);
-                intent.putExtra("link", flight.getLinks().getArticle_link());
-                startActivity(intent);
-                finish();
-            }
-        });
+
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         int position = getIntent().getIntExtra("position", 0);
-        flight = MainActivity.staticSpaceXFlightList.get(position);
-        txtName.setText(flight.getMission_name());
-        txtYear.setText(flight.getLaunch_year());
-        String photoUrl = flight.getLinks().getMission_patch_small();
-        Log.d("patch Link ------->>>", flight.getLinks().getMission_patch_small());
+        flightDetail = MainActivity.FlightList.get(position);
+        txtName.setText(flightDetail.getMissionName());
+        txtYear.setText(flightDetail.getLaunchYear());
+        String photoUrl = flightDetail.getLinks().getMissionPatchSmall();
+        Log.d("patch Link ------->>>", flightDetail.getLinks().getMissionPatchSmall());
         Glide.with(imageView)  //2
                 .load(photoUrl) //3
                 .centerCrop() //4
@@ -73,9 +63,9 @@ FlightMain flghtDetail;
                 .error(R.drawable.img_notload) //6
                 .fallback(R.drawable.img_placeholder) //7
                 .into(imageView);
-        txtDetails.setText(flight.getDetails());
-        String upcoming = "";
-        if (flight.getUpcoming().equals("false")) {
+        txtDetails.setText(flightDetail.getDetails());
+      /*  String upcoming = "";
+        if (flightDetail.getUpcoming().equals("false")) {
             upcoming = "No";
             txtUpcoming.setTextColor(Color.RED);
 
@@ -89,12 +79,12 @@ FlightMain flghtDetail;
             txtUpcoming.setTextColor(Color.RED);
         }
         txtUpcoming.setText(upcoming);
-        txtRocketId.setText(flight.getRocket().getRocket_id());
-        txtRocketName.setText(flight.getRocket().getRocket_name());
-        txtRocketType.setText(flight.getRocket().getRocket_type());
+        txtRocketId.setText(flight.getRocket().getRocket_id());*/
+        txtRocketName.setText(flightDetail.getRocket().getRocketName());
+        txtRocketType.setText(flightDetail.getRocket().getRocketType());
         //txtSiteId.setText(flight.getLaunchSite().getSite_id());
         String success = "";
-        if (flight.getFlight_success().equals("false")) {
+        if (flightDetail.getFlight_success().equals("false")) {
             success = "No";
             txtFlightSuccess.setTextColor(Color.RED);
 
