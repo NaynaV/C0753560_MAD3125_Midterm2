@@ -112,25 +112,25 @@ public class FlightData
         String video_link = links.getString("video_link");
 
         //start creating User object
-        FlightMain mSpaceXFlight = new FlightMain();
-        mSpaceXFlight.setFilghtNumber(flight_number);
-        mSpaceXFlight.setMissionName(mission_name);
-        mSpaceXFlight.setUpcoming(upcoming);
-        mSpaceXFlight.setLaunchYear(launch_year);
-        mSpaceXFlight.setLaunchWindow(launch_window);
-        mSpaceXFlight.setDetails(details);
+        FlightMain mFlightMain = new FlightMain();
+        mFlightMain.setFilghtNumber(flight_number);
+        mFlightMain.setMissionName(mission_name);
+        mFlightMain.setUpcoming(upcoming);
+        mFlightMain.setLaunchYear(launch_year);
+        mFlightMain.setLaunchWindow(launch_window);
+        mFlightMain.setDetails(details);
 
         Rocket mRocket = new Rocket();
         mRocket.setRocketId(rocket_id);
         mRocket.setRocketName(rocket_name);
         mRocket.setRocketType(rocket_type);
-        mSpaceXFlight.setRocket(mRocket);
+        mFlightMain.setRocket(mRocket);
 
         LaunchSite mLaunchSite = new LaunchSite();
         mLaunchSite.setSiteID(site_id);
         mLaunchSite.setSiteName(site_name);
         mLaunchSite.setSiteNameLong(site_name_long);
-        mSpaceXFlight.setLaunchSite(mLaunchSite);
+        mFlightMain.setLaunchSite(mLaunchSite);
 
         Links mLinks = new Links();
 
@@ -138,9 +138,9 @@ public class FlightData
         mLinks.setArticleLink(article_link);
         mLinks.setWikipedia(wikipedia);
         mLinks.setVideoLink(video_link);
-        mSpaceXFlight.setLinks(mLinks);
+        mFlightMain.setLinks(mLinks);
 
-        return mSpaceXFlight;
+        return mFlightMain;
     }
 
 

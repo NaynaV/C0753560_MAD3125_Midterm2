@@ -1,22 +1,29 @@
 package com.example.c0753560_mad3125_midterm;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.example.c0753560_mad3125_midterm.JavaClasses.FlightMain;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Recycler
-    iew recyclerView;
-    private FlightAdapter mAdapter;
+    private RecyclerView recyclerView;
 
-    DataStore mDataStore;
-    private List<FlightRow> flightRowList = new ArrayList<>();
-    public static ArrayList<SpaceXFlight> staticSpaceXFlightList;
+    private FlightAdaptor mAdapter;
+
+    FlightData mDataStore;
+    private List<FlightMain> flightRowList = new ArrayList<>();
+    public static ArrayList<FlightMain> FlightList;
 
 ImageView imgView;
     @Override
@@ -44,18 +51,18 @@ ImageView imgView;
 
 
 //testCode
-        mDataStore = new FlightData(MainActivity.this);
-        mDataStore.p();
-        MainActivity.staticSpaceXFlightList = mDataStore.mSpaceXFlightList;
-        Log.d("Size of SS space List :",String.valueOf(MainActivity.staticSpaceXFlightList.size()));
-        Log.d("Size of mSpaceList:",String.valueOf(mDataStore.mSpaceXFlightList.size()));
+        mFlightData = new FlightData(MainActivity.this);
+        mFlightData.processJSON();
+        MainActivity.FlightList = mFlightData.mFlightList;
+        Log.d("Size of SS space List :",String.valueOf(MainActivity.FlightList.size()));
+        Log.d("Size of mSpaceList:",String.valueOf(mDataStore.mFlightList.size()));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        imageView = findViewById(R.id.imageView);
-        recyclerView = findViewById(R.id.recycleView);
+        imgView = findViewById(R.id.flightImage);
+        recyclerView = findViewById(R.id.flightListRecyclerView);
 
 
-        mAdapter = new FlightAdapter(this,flightRowList);
+        mAdapter = new FlightAdaptor(this,flightRowList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -67,9 +74,10 @@ ImageView imgView;
 
     private void prepareFlightListData()
     {
-        for(SpaceXFlight flight : mDataStore.mSpaceXFlightList)
+        for (FlightData flight : mFlightData.mFlightList)
+      
         {
-            FlightRow flightRow = new FlightRow(flight.getLinks().getMission_patch_small(),flight.getMission_name(),flight.getLaunch_year());
+            FlightData flightRow = new FlightData(flight.getLinks().getMission_patch_small(),flight.getMission_name(),flight.getLaunch_year());
             flightRowList.add(flightRow);
         }
         mAdapter.notifyDataSetChanged();
