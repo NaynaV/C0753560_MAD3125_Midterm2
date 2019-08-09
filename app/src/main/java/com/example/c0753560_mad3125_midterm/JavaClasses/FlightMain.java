@@ -14,10 +14,13 @@ public class FlightMain
 
     public FlightMain()
     {
+    }
+
+    public FlightMain(String filghtNumber, String missionName, String upcoming, String launchYear, String launchWindow, String details, Rocket rocket, LaunchSite launchSite, Links links) {
         this.filghtNumber = filghtNumber;
-        this.missionName = this.missionName;
+        this.missionName = missionName;
         this.upcoming = upcoming;
-        this.launchYear = this.launchYear;
+        this.launchYear = launchYear;
         this.launchWindow = launchWindow;
         this.details = details;
         this.rocket = rocket;

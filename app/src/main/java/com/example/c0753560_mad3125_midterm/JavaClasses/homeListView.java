@@ -7,6 +7,9 @@ public class homeListView
     String flightYear;
 
     public homeListView() {
+    }
+
+    public homeListView(String missionPatchSmall, String missionName, String launchYear) {
         this.flightimage = flightimage;
         this.flightName = flightName;
         this.flightYear = flightYear;

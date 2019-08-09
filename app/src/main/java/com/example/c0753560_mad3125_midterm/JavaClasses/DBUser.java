@@ -7,16 +7,16 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 
-public class DbUser {
+public class DBUser {
 
     public static final String TABLE_NAME = "tblUser";
     public static final String USER_ID = "uid";
     public static final String USER_EMAIL = "uemail";
     public static final String USER_PASSWORD = "upass";
-    private DbHelper dbHelper;
-    public DbUser(Context context)
+    private DBHelper dbHelper;
+    public DBUser(Context context)
     {
-        dbHelper = new DbHelper(context);
+        dbHelper = new DBHelper(context);
     }
 
     public void insert(User user)
@@ -24,9 +24,9 @@ public class DbUser {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         ContentValues cv = new ContentValues();
-        cv.put(USER_ID, user.getUserId());
-        cv.put(USER_EMAIL, user.getUserEmail());
-        cv.put(USER_PASSWORD, user.getUserPassword());
+        cv.put(USER_ID, user.getId());
+        cv.put(USER_EMAIL, user.getEmail());
+        cv.put(USER_PASSWORD, user.getPassword());
 
         db.insert(TABLE_NAME, null,cv);
 
@@ -39,15 +39,15 @@ public class DbUser {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         ContentValues cv = new ContentValues();
-        cv.put(USER_ID, user.getUserId());
-        cv.put(USER_EMAIL, user.getUserEmail());
-        cv.put(USER_PASSWORD, user.getUserPassword());
+        cv.put(USER_ID, user.getId());
+        cv.put(USER_EMAIL, user.getEmail());
+        cv.put(USER_PASSWORD, user.getPassword());
 
         db.update(TABLE_NAME,cv,
                 USER_ID + "=?",
                 new String[]
                         {
-                                String.valueOf(user.getUserId())
+                                String.valueOf(user.getId())
                         });
 
         db.close();
@@ -59,15 +59,15 @@ public class DbUser {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         ContentValues cv = new ContentValues();
-        cv.put(USER_ID, user.getUserId());
-        cv.put(USER_EMAIL, user.getUserEmail());
-        cv.put(USER_PASSWORD, user.getUserPassword());
+        cv.put(USER_ID, user.getId());
+        cv.put(USER_EMAIL, user.getEmail());
+        cv.put(USER_PASSWORD, user.getPassword());
 
         db.update(TABLE_NAME,cv,
                 USER_EMAIL + "=?",
                 new String[]
                         {
-                                user.getUserEmail()
+                                user.getEmail()
                         });
 
         db.close();
@@ -111,10 +111,10 @@ public class DbUser {
                 mCursor.moveToFirst();
                 while (!mCursor.isAfterLast())
                 {
-                    User mUser = new User(5, "xyz@xyz.com", "xyz");
-                    mUser.setUserId(Integer.parseInt(mCursor.getString(0)));
-                    mUser.setUserEmail(mCursor.getString(1));
-                    mUser.setUserPassword(mCursor.getString(2));
+                    User mUser = new User();
+                    mUser.setId(Integer.parseInt(mCursor.getString(0)));
+                    mUser.setEmail(mCursor.getString(1));
+                    mUser.setPassword(mCursor.getString(2));
 
                     mUsers.add(mUser);
 
@@ -142,9 +142,9 @@ public class DbUser {
                 mCursor.moveToFirst();
                 while (!mCursor.isAfterLast())
                 {
-                    User mUser = new User(5, "xyz@xyz.com", "xyz");
-                    mUser.setUserEmail(mCursor.getString(1));
-                    mUser.setUserPassword(mCursor.getString(2));
+                    User mUser = new User();
+                    mUser.setEmail(mCursor.getString(1));
+                    mUser.setPassword(mCursor.getString(2));
 
                     mUsers.add(mUser);
 

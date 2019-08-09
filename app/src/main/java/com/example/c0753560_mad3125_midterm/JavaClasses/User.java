@@ -2,47 +2,49 @@ package com.example.c0753560_mad3125_midterm.JavaClasses;
 
 public class User
 {
-    private int userId;
+    private String email;
+    private String password;
+    private int id;
 
-    private String userEmail;
-    private String userPassword;
-
-    public User(int i, String s, String xyz) {
-        this.userId = userId;
-        this.userEmail = userEmail;
-        this.userPassword = userPassword;
+    public User() {
     }
 
-    public int getUserId() {
-        return userId;
+    public User(int i, String s, String naina) {
+        this.email = email;
+        this.password = password;
+        this.id = id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public String getEmail() {
+        return email;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public String getPassword() {
+        return password;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "userId=" + userId +
-                ", userEmail='" + userEmail + '\'' +
-                ", userPassword='" + userPassword + '\'' +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", id=" + id +
                 '}';
     }
 }

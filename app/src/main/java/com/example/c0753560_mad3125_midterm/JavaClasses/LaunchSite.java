@@ -6,6 +6,9 @@ public class LaunchSite {
     private String siteNameLong;
 
     public LaunchSite() {
+    }
+
+    public LaunchSite(String siteID, String siteName, String siteNameLong) {
         this.siteID = siteID;
         this.siteName = siteName;
         this.siteNameLong = siteNameLong;

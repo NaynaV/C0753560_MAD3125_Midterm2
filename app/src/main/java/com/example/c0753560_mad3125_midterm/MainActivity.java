@@ -64,7 +64,7 @@ ImageView imgView;
         for (FlightMain flight : mFlidatData.mFlightList)
 
         {
-            homeListView flightRow = new homeListView();
+            homeListView flightRow = new homeListView(flight.getLinks().getMissionPatchSmall(),flight.getMissionName(),flight.getLaunchYear());
 
             flightRowList.add(flightRow);
         }
