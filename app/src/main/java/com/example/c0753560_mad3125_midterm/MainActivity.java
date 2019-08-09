@@ -40,6 +40,7 @@ ImageView imgView;
         MainActivity.FlightList = mFlidatData.mFlightList;
         Log.d("Size of SS space List :",String.valueOf(MainActivity.FlightList.size()));
         Log.d("Size of mSpaceList:",String.valueOf(mFlidatData.mFlightList.size()));
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
