@@ -3,7 +3,6 @@ package com.example.c0753560_mad3125_midterm;
 import android.content.Context;
 
 
-import com.bumptech.glide.Glide;
 import com.example.c0753560_mad3125_midterm.JavaClasses.FlightMain;
 import com.example.c0753560_mad3125_midterm.JavaClasses.LaunchSite;
 import com.example.c0753560_mad3125_midterm.JavaClasses.Links;
@@ -20,8 +19,6 @@ import java.util.ArrayList;
 
 
 import java.io.IOException;
-
-import java.nio.charset.StandardCharsets;
 
 public class FlightData
 {

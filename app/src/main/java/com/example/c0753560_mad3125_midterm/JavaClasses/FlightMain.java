@@ -15,9 +15,9 @@ public class FlightMain
     public FlightMain()
     {
         this.filghtNumber = filghtNumber;
-        this.missionName = missionName;
+        this.missionName = this.missionName;
         this.upcoming = upcoming;
-        this.launchYear = launchYear;
+        this.launchYear = this.launchYear;
         this.launchWindow = launchWindow;
         this.details = details;
         this.rocket = rocket;

@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FlightAdaptor mAdapter;
 
-    FlightData mDataStore;
+    FlightData mFlidatData;
     private List<FlightMain> flightRowList = new ArrayList<>();
     public static ArrayList<FlightMain> FlightList;
 
@@ -55,7 +55,7 @@ ImageView imgView;
         mFlightData.processJSON();
         MainActivity.FlightList = mFlightData.mFlightList;
         Log.d("Size of SS space List :",String.valueOf(MainActivity.FlightList.size()));
-        Log.d("Size of mSpaceList:",String.valueOf(mDataStore.mFlightList.size()));
+        Log.d("Size of mSpaceList:",String.valueOf(mFlightData.mFlightList.size()));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imgView = findViewById(R.id.flightImage);
@@ -74,13 +74,16 @@ ImageView imgView;
 
     private void prepareFlightListData()
     {
-        for (FlightData flight : mFlightData.mFlightList)
-      
+        for (FlightMain flight : mFlidatData.mFlightList)
+
         {
-            FlightData flightRow = new FlightData(flight.getLinks().getMission_patch_small(),flight.getMission_name(),flight.getLaunch_year());
-            flightRowList.add(flightRow);
+            FlightMain flightRow = new FlightMain();
+
+            FlightList.add(flightRow);
         }
         mAdapter.notifyDataSetChanged();
     }
+
+
     }
 
