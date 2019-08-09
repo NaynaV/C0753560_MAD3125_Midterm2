@@ -13,13 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.c0753560_mad3125_midterm.JavaClasses.FlightMain;
+import com.example.c0753560_mad3125_midterm.JavaClasses.homeListView;
 
 import java.util.List;
 
 public class FlightAdaptor extends RecyclerView.Adapter<FlightAdaptor.flightViewHolder>
 {
 
-    public List<FlightMain> flightList;
+    public List<homeListView> flightList;
     ImageView flightImage;
     TextView flightName,flightYear;
 
@@ -27,7 +28,7 @@ public class FlightAdaptor extends RecyclerView.Adapter<FlightAdaptor.flightView
 
     AppCompatActivity activity;
 
-    public FlightAdaptor(AppCompatActivity activity_main, List<FlightMain> flightList)
+    public FlightAdaptor(AppCompatActivity activity_main, List<homeListView> flightList)
     {
         this.flightList = flightList;
         this.activity = activity_main;
@@ -47,7 +48,7 @@ public class FlightAdaptor extends RecyclerView.Adapter<FlightAdaptor.flightView
     @Override
     public void onBindViewHolder(@NonNull flightViewHolder holder, int i)
     {
-        FlightMain mFlightMain = flightList.get(i);
+        homeListView mFlightMain = flightList.get(i);
         String photoUrl = MainActivity.FlightList.get(i).getLinks().getMissionPatchSmall();
         Glide.with(holder.flightImage)  //2
                 .load(photoUrl) //3
@@ -58,8 +59,8 @@ public class FlightAdaptor extends RecyclerView.Adapter<FlightAdaptor.flightView
                 .into(holder.flightImage);
         //myViewHolder.flightImage.setImageResource(mFlightRow.getImageId());
         //icon.setImageResource(context.getResources().getIdentifier(animal.getAnimalName().toLowerCase(),"drawable",context.getPackageName()));
-        holder.flightName.setText(mFlightMain.getMissionName());
-        holder.flightYear.setText(mFlightMain.getLaunchYear());
+        holder.flightName.setText(mFlightMain.getFlightName());
+        holder.flightYear.setText(mFlightMain.getFlightYear());
 
     }
 

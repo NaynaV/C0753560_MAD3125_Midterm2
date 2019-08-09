@@ -6,7 +6,7 @@ public class homeListView
     String flightName;
     String flightYear;
 
-    public homeListView(String flightimage, String flightName, String flightYear) {
+    public homeListView() {
         this.flightimage = flightimage;
         this.flightName = flightName;
         this.flightYear = flightYear;

@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.c0753560_mad3125_midterm.JavaClasses.FlightMain;
+import com.example.c0753560_mad3125_midterm.JavaClasses.homeListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,41 +24,22 @@ public class MainActivity extends AppCompatActivity {
 
     FlightData mFlidatData;
 
-    private List<FlightMain> flightRowList = new ArrayList<>();
+    private List<homeListView> flightRowList = new ArrayList<homeListView>();
 
     public static ArrayList<FlightMain> FlightList;
 
 ImageView imgView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-
-       // imgView = findViewById(R.id.imgView);
-
-
-        FlightData mFlightData = new FlightData(MainActivity.this);
-        mFlightData.processJSON();
-        Log.d("Size of List : ",String.valueOf(mFlightData.mFlightList.size()));
-
-        String photoUrl = mFlightData.mFlightList.get(1).getLinks().getMissionPatchSmall();
-        Log.d("string photo url  : ",photoUrl);
-        Glide.with(imgView)  //2
-                .load(photoUrl) //3
-                .centerCrop() //4
-                .placeholder(R.drawable.img_placeholder) //5
-                .error(R.drawable.img_notload) //6
-                .fallback(R.drawable.img_placeholder) //7
-                .into(imgView);
 
 
 //testCode
-        mFlightData = new FlightData(MainActivity.this);
-        mFlightData.processJSON();
-        MainActivity.FlightList = mFlightData.mFlightList;
+        mFlidatData = new FlightData(MainActivity.this);
+        mFlidatData.processJSON();
+        MainActivity.FlightList = mFlidatData.mFlightList;
         Log.d("Size of SS space List :",String.valueOf(MainActivity.FlightList.size()));
-        Log.d("Size of mSpaceList:",String.valueOf(mFlightData.mFlightList.size()));
+        Log.d("Size of mSpaceList:",String.valueOf(mFlidatData.mFlightList.size()));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -73,6 +55,7 @@ ImageView imgView;
         prepareFlightListData();
 
 
+
     }
 
     private void prepareFlightListData()
@@ -80,7 +63,7 @@ ImageView imgView;
         for (FlightMain flight : mFlidatData.mFlightList)
 
         {
-            FlightMain flightRow = new FlightMain();
+            homeListView flightRow = new homeListView();
 
             flightRowList.add(flightRow);
         }
